@@ -9,13 +9,21 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/Android-PullToRefresh-library" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/gifttalk" />
+            <option value="$PROJECT_DIR$/okhttpdemo" />
+            <option value="$PROJECT_DIR$/okhttplibrary" />
           </set>
         </option>
         <option name="myModules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/Android-PullToRefresh-library" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/gifttalk" />
+            <option value="$PROJECT_DIR$/okhttpdemo" />
+            <option value="$PROJECT_DIR$/okhttplibrary" />
           </set>
         </option>
       </GradleProjectSettings>

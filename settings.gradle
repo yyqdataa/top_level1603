@@ -1,1 +1,1 @@
-include ':app'
+include ':app', ':gifttalk', ':okhttpdemo', ':okhttplibrary', ':Android-PullToRefresh-library'
