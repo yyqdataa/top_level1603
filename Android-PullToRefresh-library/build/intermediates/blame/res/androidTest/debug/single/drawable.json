@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "E:\\android\\AndroidStudioProjects\\AndroidTop\\Android-PullToRefresh-library\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\box_anim_list.xml",
+        "source": "E:\\android\\AndroidStudioProjects\\AndroidTop\\Android-PullToRefresh-library\\build\\intermediates\\bundles\\debug\\res\\drawable\\box_anim_list.xml"
+    },
+    {
+        "merged": "E:\\android\\AndroidStudioProjects\\AndroidTop\\Android-PullToRefresh-library\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\indicator_bg_top.xml",
+        "source": "E:\\android\\AndroidStudioProjects\\AndroidTop\\Android-PullToRefresh-library\\build\\intermediates\\bundles\\debug\\res\\drawable\\indicator_bg_top.xml"
+    },
+    {
+        "merged": "E:\\android\\AndroidStudioProjects\\AndroidTop\\Android-PullToRefresh-library\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\indicator_bg_bottom.xml",
+        "source": "E:\\android\\AndroidStudioProjects\\AndroidTop\\Android-PullToRefresh-library\\build\\intermediates\\bundles\\debug\\res\\drawable\\indicator_bg_bottom.xml"
+    }
+]

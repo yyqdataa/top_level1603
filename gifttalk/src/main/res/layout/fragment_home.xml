@@ -1,0 +1,57 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.phone1000.app.gifttalk.fragment.HomeFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <RelativeLayout
+        android:id="@+id/relative_bar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@android:color/holo_red_light">
+        <ImageButton
+            android:id="@+id/select_singnin"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/btn_signin"/>
+        <TextView
+            android:id="@+id/gift_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="礼物说"
+            android:textColor="@android:color/white"
+            android:textSize="25dp"
+            android:layout_centerInParent="true"
+            android:textStyle="bold"/>
+        <ImageButton
+            android:id="@+id/change_day_night"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@drawable/ic_night_on"
+            android:layout_alignTop="@+id/select_singnin"
+            android:layout_toRightOf="@+id/gift_title"
+            android:layout_marginLeft="38dp" />
+        <ImageButton
+            android:id="@+id/search"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@drawable/abc_ic_search"
+            android:layout_alignTop="@+id/select_singnin"
+            android:layout_toRightOf="@+id/change_day_night"
+            android:layout_marginLeft="38dp" />
+
+    </RelativeLayout>
+   <android.support.design.widget.TabLayout
+       android:id="@+id/home_tab_layout"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"/>
+   <android.support.v4.view.ViewPager
+       android:id="@+id/home_vp"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"/>
+
+</LinearLayout>

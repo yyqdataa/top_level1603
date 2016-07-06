@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.phone1000.app.okhttpdemo.PostActivity">
+    <Button
+        android:id="@+id/btn_asyn_post"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Post异步请求"/>
+    <Button
+        android:id="@+id/btn_syn_post"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Post同步请求"/>
+
+    <TextView
+        android:id="@+id/tv_show"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="dnfjahfjaf"/>
+</LinearLayout>

@@ -1,0 +1,16 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.phone1000.app.gifttalk.fragment.WellChosenFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+   <com.handmark.pulltorefresh.library.PullToRefreshExpandableListView
+       android:id="@+id/expanded_lv"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:groupIndicator="@null"
+       android:dividerHeight="0dp"
+       android:divider="@null"/>
+
+</RelativeLayout>

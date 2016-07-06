@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="40dp">
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="13dp"
+        android:background="#e7e5e5"/>
+    <TextView
+        android:id="@+id/group_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="5dp"
+        android:drawableLeft="@drawable/group_bar"
+        android:text="2016-06-24"/>
+</LinearLayout>
