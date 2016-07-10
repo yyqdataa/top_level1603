@@ -7,16 +7,8 @@ The following files were *not* copied into the new Gradle project; you
 should evaluate whether these are still needed in your project and if
 so manually move them:
 
-From library:
-* AndroidManifest.xml
-* checkstyle.xml
-* pom.xml
-From sample:
-* icon_web.png
-* logo.png
-* logo.psd
-* pom.xml
-* screens.png
+* ic_launcher-web.png
+* proguard-project.txt
 
 Replaced Jars with Dependencies:
 --------------------------------
@@ -28,19 +20,17 @@ the .jar file in your project was of an older version than the
 dependency we picked, which could render the project not compileable.
 You can disable the jar replacement in the import wizard and try again:
 
-android-support-v4.jar => com.android.support:support-v4:23.+
+android-support-v4.jar => com.android.support:support-v4:18.+
 
 Moved Files:
 ------------
 Android Gradle projects use a different directory structure than ADT
 Eclipse projects. Here's how the projects were restructured:
 
-In library:
-* src\ => library\src\main\java\
-In sample:
-* AndroidManifest.xml => sample\src\main\AndroidManifest.xml
-* res\ => sample\src\main\res\
-* src\ => sample\src\main\java\
+* AndroidManifest.xml => verticalViewPager\src\main\AndroidManifest.xml
+* assets\ => verticalViewPager\src\main\assets
+* res\ => verticalViewPager\src\main\res\
+* src\ => verticalViewPager\src\main\java\
 
 Missing Android Support Repository:
 -----------------------------------
