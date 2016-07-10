@@ -1,12 +1,12 @@
 package com.phone1000.app.gifttalk.fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,9 +16,11 @@ import android.widget.ImageView;
 import com.bigkoo.convenientbanner.ConvenientBanner;
 import com.bigkoo.convenientbanner.holder.CBViewHolderCreator;
 import com.bigkoo.convenientbanner.holder.Holder;
+import com.bigkoo.convenientbanner.listener.OnItemClickListener;
 import com.google.gson.Gson;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshExpandableListView;
+import com.phone1000.app.gifttalk.HeadItemActivity;
 import com.phone1000.app.gifttalk.R;
 import com.phone1000.app.gifttalk.adapter.ExpandAdapter;
 import com.phone1000.app.gifttalk.adapter.HeadRVAdapter;
@@ -48,7 +50,7 @@ import butterknife.ButterKnife;
  * Use the {@link WellChosenFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class WellChosenFragment extends Fragment {
+public class WellChosenFragment extends Fragment implements OnItemClickListener{
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -64,6 +66,7 @@ public class WellChosenFragment extends Fragment {
     private HeadRVAdapter headRVAdapter;
     private HomeExpandInfo homeExpandInfo;
     private int page = 0;
+
 
 
     public WellChosenFragment() {
@@ -165,7 +168,6 @@ public class WellChosenFragment extends Fragment {
             public void onLastItemVisible() {
                 if (homeExpandInfo!=null){
                     String next_url = homeExpandInfo.getData().getPaging().getNext_url();
-                    Log.i("yyyq---","====>"+next_url);
                     data.clear();
                     setupData(next_url);
                 }
@@ -234,7 +236,20 @@ public class WellChosenFragment extends Fragment {
             }
         },imageData)
                 .setPageIndicatorAlign(ConvenientBanner.PageIndicatorAlign.CENTER_HORIZONTAL);
+
+        headViewHolde.convenientBanner.setOnItemClickListener(this);
     }
+
+    @Override
+    public void onItemClick(int position) {
+        int target_id = imageData.get(position).getTarget_id();
+        String title = imageData.get(position).getTarget().getTitle();
+        Intent intent = new Intent(getActivity(), HeadItemActivity.class);
+        intent.putExtra("id",target_id);
+        intent.putExtra("title",title);
+        startActivity(intent);
+    }
+
 
     static class HeadBannerHolder implements Holder<BannerInfo.DataBean.BannersBean>{
 

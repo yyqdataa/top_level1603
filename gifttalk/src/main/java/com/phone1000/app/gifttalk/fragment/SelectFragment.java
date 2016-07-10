@@ -4,11 +4,17 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RadioGroup;
 
 import com.phone1000.app.gifttalk.R;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -29,6 +35,7 @@ public class SelectFragment extends Fragment {
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
+    private View view;
 
     public SelectFragment() {
         // Required empty public constructor
@@ -52,6 +59,8 @@ public class SelectFragment extends Fragment {
         return fragment;
     }
 
+    private FragmentManager manager;
+    private FragmentTransaction transaction;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,13 +68,58 @@ public class SelectFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+        manager = getFragmentManager();
     }
 
+    @BindView(R.id.select_rg)
+    RadioGroup radioGroup;
+    Fragment strategyFragment,giftFragment;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_select, container, false);
+        view = inflater.inflate(R.layout.fragment_select, container, false);
+        ButterKnife.bind(this,view);
+        initListener();
+        return view;
+    }
+
+    private void initListener() {
+        strategyFragment = StrategyFragment.newInstance("","");
+        FragmentTransaction transaction1 = manager.beginTransaction();
+        transaction1.add(R.id.select_frag_ll,strategyFragment);
+        transaction1.commit();
+        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                transaction = manager.beginTransaction();
+                switch (checkedId){
+                    case R.id.select_rb_way:
+                        transaction.show(strategyFragment);
+                        if (giftFragment!=null){
+                            transaction.hide(giftFragment);
+                        }
+                        transaction.addToBackStack("");
+                        break;
+                    case R.id.select_rb_gift:
+                        if (giftFragment==null){
+                            giftFragment = GiftFragment.newInstance("","");
+                            transaction.add(R.id.select_frag_ll,giftFragment);
+                            if (strategyFragment!=null){
+                                transaction.hide(strategyFragment);
+                            }
+                        }else {
+                            transaction.show(giftFragment);
+                            if (strategyFragment!=null){
+                                transaction.hide(strategyFragment);
+                            }
+                        }
+                        transaction.addToBackStack("");
+                        break;
+                }
+                transaction.commit();
+            }
+        });
     }
 
     // TODO: Rename method, update argument and hook method into UI event

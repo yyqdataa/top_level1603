@@ -26,7 +26,7 @@
             android:id="@+id/search"
             android:layout_width="20dp"
             android:layout_height="20dp"
-            android:background="@drawable/abc_ic_search"
+            android:background="@drawable/ic_menu_search"
             android:layout_centerVertical="true"
             android:layout_alignParentRight="true"
             android:layout_marginRight="15dp" />
@@ -35,6 +35,11 @@
     <com.handmark.pulltorefresh.library.PullToRefreshGridView
         android:id="@+id/hot_fragment_ptrgv"
         android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:columnWidth="90dp"
+        android:horizontalSpacing="10dp"
         android:numColumns="2"
-        android:layout_height="match_parent" />
+        android:stretchMode="columnWidth"
+        android:background="#ded9d9"
+        android:verticalSpacing="10dp" />
 </LinearLayout>

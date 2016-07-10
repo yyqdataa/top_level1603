@@ -8,7 +8,20 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.gson.Gson;
+import com.handmark.pulltorefresh.library.PullToRefreshGridView;
 import com.phone1000.app.gifttalk.R;
+import com.phone1000.app.gifttalk.adapter.HotAdapter;
+import com.phone1000.app.gifttalk.bean.HotInfo;
+import com.phone1000.app.gifttalk.constant.URLConstant;
+import com.phone1000.app.okhttplibrary.IOKCallBack;
+import com.phone1000.app.okhttplibrary.OkHttpTool;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -29,6 +42,12 @@ public class HotFragment extends Fragment {
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
+    private View view;
+
+    private List<HotInfo.DataBean.ItemsBean> data = new ArrayList<>();
+    private HotAdapter adapter;
+    @BindView(R.id.hot_fragment_ptrgv)
+    PullToRefreshGridView pullToRefreshGridView;
 
     public HotFragment() {
         // Required empty public constructor
@@ -65,7 +84,24 @@ public class HotFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_hot, container, false);
+        view = inflater.inflate(R.layout.fragment_hot, container, false);
+        ButterKnife.bind(this,view);
+        setupData();
+        adapter = new HotAdapter(getContext(),data);
+        pullToRefreshGridView.setAdapter(adapter);
+        return view;
+    }
+
+    private void setupData() {
+        OkHttpTool.newInstance().start(URLConstant.HOT_URL).callback(new IOKCallBack() {
+            @Override
+            public void success(String result) {
+                Gson gson = new Gson();
+                HotInfo hotInfo = gson.fromJson(result,HotInfo.class);
+                data.addAll(hotInfo.getData().getItems());
+                adapter.notifyDataSetChanged();
+            }
+        });
     }
 
     // TODO: Rename method, update argument and hook method into UI event

@@ -77,6 +77,8 @@ public class HomeFragment extends Fragment {
 
     private List<TableLayoutInfo.DataBean.ChannelsBean> vpTitles = new ArrayList<>();
     private List<Fragment> fragLists = new ArrayList<>();
+
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

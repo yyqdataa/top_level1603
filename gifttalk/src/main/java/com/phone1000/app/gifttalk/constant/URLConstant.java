@@ -16,5 +16,9 @@ public class URLConstant {
     //指南界面的所有分类：
     public static final String GUID_URL = "http://api.liwushuo.com/v2/channels/preset?gender=1&generation=2";
 
+    //精选ViewPager跳转
+    public static final String WELL_CHOSE_VP ="http://api.liwushuo.com/v2/collections/324/posts?limit=20&offset=0";
+    //热门：
+    public static final String HOT_URL = "http://api.liwushuo.com/v2/items?gender=1&limit=20&offset=0&generation=2";
 
 }

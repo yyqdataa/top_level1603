@@ -107,13 +107,14 @@ public class OtherFragment extends Fragment {
             @Override
             public void onPullDownToRefresh(PullToRefreshBase<ListView> refreshView) {
                 page = 0;
+                data.clear();
                 setupData(url);
                 pullToRefreshListView.onRefreshComplete();
             }
 
             @Override
             public void onPullUpToRefresh(PullToRefreshBase<ListView> refreshView) {
-
+                pullToRefreshListView.onRefreshComplete();
             }
         });
         pullToRefreshListView.setOnLastItemVisibleListener(new PullToRefreshBase.OnLastItemVisibleListener() {

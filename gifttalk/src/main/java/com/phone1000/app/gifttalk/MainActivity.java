@@ -12,48 +12,34 @@ import com.phone1000.app.gifttalk.fragment.HotFragment;
 import com.phone1000.app.gifttalk.fragment.MyFragment;
 import com.phone1000.app.gifttalk.fragment.SelectFragment;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-
 public class MainActivity extends AppCompatActivity {
 
 
     private FragmentManager manager;
     private FragmentTransaction transaction;
-    @BindView(R.id.rg_main)
-    RadioGroup radioGroup;
+    private RadioGroup radioGroup;
+    private Fragment homeFragment,hotFragment,selectFragment,myFragment;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ButterKnife.bind(this);
+        radioGroup = (RadioGroup) findViewById(R.id.rg_main);
         manager = getSupportFragmentManager();
-        initLiatener();
-        transaction = manager.beginTransaction();
-        transaction.add(R.id.frag_layout, HomeFragment.newInstance("",""));
+        FragmentTransaction transaction = manager.beginTransaction();
+        homeFragment = HomeFragment.newInstance("","");
+        transaction.add(R.id.frag_layout,homeFragment);
         transaction.commit();
+        initLiatener();
     }
-    private Fragment homeFragment,hotFragment,selectFragment,myFragment;
     private void initLiatener() {
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
+
                 transaction = manager.beginTransaction();
                 switch (checkedId){
                     case R.id.rb_home:
-                        if (homeFragment == null) {
-                            homeFragment = HomeFragment.newInstance("", "");
-                            transaction.add(homeFragment, "home");
-                            if (hotFragment != null) {
-                                transaction.hide(hotFragment);
-                            }
-                            if (selectFragment != null) {
-                                transaction.hide(selectFragment);
-                            }
-                            if (myFragment != null) {
-                                transaction.hide(myFragment);
-                            }
-                        } else {
+                        if (homeFragment!=null){
                             transaction.show(homeFragment);
                             if (hotFragment != null) {
                                 transaction.hide(hotFragment);
@@ -65,12 +51,12 @@ public class MainActivity extends AppCompatActivity {
                                 transaction.hide(myFragment);
                             }
                         }
-                        transaction.addToBackStack("home");
+                        transaction.addToBackStack("");
                         break;
                     case R.id.rb_good:
                         if (hotFragment == null) {
                             hotFragment = HotFragment.newInstance("", "");
-                            transaction.add(hotFragment, "hot");
+                            transaction.add(R.id.frag_layout, hotFragment);
                             if (homeFragment != null) {
                                 transaction.hide(homeFragment);
                             }
@@ -92,12 +78,12 @@ public class MainActivity extends AppCompatActivity {
                                 transaction.hide(myFragment);
                             }
                         }
-                        transaction.addToBackStack("hot");
+                        transaction.addToBackStack("");
                         break;
                     case R.id.rb_select:
                         if (selectFragment == null) {
                             selectFragment = SelectFragment.newInstance("", "");
-                            transaction.add(selectFragment, "select");
+                            transaction.add(R.id.frag_layout, selectFragment);
                             if (homeFragment != null) {
                                 transaction.hide(homeFragment);
                             }
@@ -119,12 +105,12 @@ public class MainActivity extends AppCompatActivity {
                                 transaction.hide(myFragment);
                             }
                         }
-                        transaction.addToBackStack("select");
+                        transaction.addToBackStack("");
                         break;
                     case R.id.rb_profile:
                         if (myFragment == null) {
                             myFragment = MyFragment.newInstance("", "");
-                            transaction.add(myFragment, "my");
+                            transaction.add(R.id.frag_layout, myFragment);
                             if (homeFragment != null) {
                                 transaction.hide(homeFragment);
                             }
@@ -146,7 +132,7 @@ public class MainActivity extends AppCompatActivity {
                                 transaction.hide(selectFragment);
                             }
                         }
-                        transaction.addToBackStack("my");
+                        transaction.addToBackStack("");
                         break;
                 }
                 transaction.commit();
