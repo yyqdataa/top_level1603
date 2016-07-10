@@ -17,7 +17,6 @@
 
 package com.directionalviewpager;
 
-import java.util.ArrayList;
 import android.content.Context;
 import android.os.Build;
 import android.os.Parcel;
@@ -38,6 +37,8 @@ import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.widget.Scroller;
+
+import java.util.ArrayList;
 
 /**
  * Layout manager that allows the user to flip horizontally or vertically
