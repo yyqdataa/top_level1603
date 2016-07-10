@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.phone1000.app.gifttalk.HeadItemActivity">
+    <RelativeLayout
+        android:id="@+id/relative_bar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@android:color/holo_red_light">
+        <ImageButton
+            android:id="@+id/select_singnin"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/ic_action_back"/>
+        <TextView
+            android:id="@+id/gift_title"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="不想被“黑”，做好防晒才是正经事"
+            android:singleLine="true"
+            android:gravity="center"
+            android:textColor="@android:color/white"
+            android:textSize="20dp"
+            android:layout_centerInParent="true"
+            android:textStyle="bold"/>
+        <ImageButton
+            android:id="@+id/search"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@drawable/ic_menu_search"
+            android:layout_alignTop="@+id/select_singnin"
+            android:layout_toRightOf="@+id/gift_title"
+            android:layout_marginLeft="25dp" />
+
+    </RelativeLayout>
+    <com.handmark.pulltorefresh.library.PullToRefreshListView
+        android:id="@+id/head_item_ptrlv"
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+</LinearLayout>

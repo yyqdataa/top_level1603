@@ -1,0 +1,5 @@
+apply plugin: 'java'
+
+dependencies {
+    compile 'com.android.support:support-v4:23.+'
+}
